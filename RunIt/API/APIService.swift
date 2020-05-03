@@ -14,25 +14,14 @@ class APIService {
     
     static let shared = APIService()
     
-    
-    func fethcUsers(uid:String?) {
-        
-        var ref: DatabaseReference!
 
-        ref = Database.database().reference()
-        
-        let userID = uid
-        
-        
-       
-        
-        
-        
-        
-        
-        
-        
-    }
+    
+    
+    
+    
+    
+    
+
     
     
     

@@ -10,15 +10,11 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-    let messageControlelr = UINavigationController(rootViewController: MessageController())
+    let messageController = UINavigationController(rootViewController: InboxController())
     
-    let addressBookController = AddressBookController()
+    let meController = UINavigationController(rootViewController: MeController())
     
-    let meController = MeController()
-    
-    let discoverController = DiscoverController()
-    
-
+    let peopleTableViewController =  UINavigationController(rootViewController: NearbyController())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,35 +22,34 @@ class MainTabBarController: UITabBarController {
         self.tabBar.tintColor = UIColor(red: 7/255, green: 193/255, blue: 96/255, alpha: 1)
         
         
-
-        messageControlelr.navigationItem.title = "微信"
-        messageControlelr.tabBarItem.title = "微信"
-        messageControlelr.tabBarItem.selectedImage = UIImage(named: "tabbar_mainframeHL")
-        messageControlelr.tabBarItem.image = UIImage(named: "tabbar_mainframe")
-        messageControlelr.tabBarItem.badgeColor = .red
-        messageControlelr.tabBarItem.badgeValue = "6"
         
-        addressBookController.navigationItem.title = "通讯录"
-        addressBookController.tabBarItem.title = "通讯录"
-        addressBookController.tabBarItem.selectedImage = UIImage(named: "tabbar_contactsHL")
-        addressBookController.tabBarItem.image = UIImage(named: "tabbar_contacts")
+        messageController.navigationItem.title = "微信"
+        messageController.tabBarItem.title = "微信"
+        messageController.tabBarItem.selectedImage = UIImage(named: "tabbar_mainframeHL")
+        messageController.tabBarItem.image = UIImage(named: "tabbar_mainframe")
+        messageController.tabBarItem.badgeColor = .red
+        messageController.tabBarItem.badgeValue = "6"
+        
+        peopleTableViewController.navigationItem.title = "通讯录"
+        peopleTableViewController.tabBarItem.title = "通讯录"
+        peopleTableViewController.tabBarItem.selectedImage = UIImage(named: "tabbar_contactsHL")
+        peopleTableViewController.tabBarItem.image = UIImage(named: "tabbar_contacts")
        
         meController.navigationItem.title = "我"
         meController.tabBarItem.title = "我"
         meController.tabBarItem.selectedImage = UIImage(named: "tabbar_meHL")
         meController.tabBarItem.image = UIImage(named: "tabbar_me")
               
-        discoverController.navigationItem.title = "发现"
-        discoverController.tabBarItem.title = "发现"
-        discoverController.tabBarItem.selectedImage = UIImage(named: "tabbar_discoverHL")
-        discoverController.tabBarItem.image = UIImage(named: "tabbar_discover")
-        
+
+    
+        viewControllers = [messageController, peopleTableViewController,  meController]
+
         
        
         
         
-       viewControllers = [messageControlelr, addressBookController,discoverController, meController]
-       
+        
+        
     }
     
     

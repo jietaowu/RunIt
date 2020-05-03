@@ -15,8 +15,6 @@ class CustomCell: UITableViewCell {
        
 //        update(count: 2)
         
-        
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

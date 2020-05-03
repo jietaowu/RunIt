@@ -5,8 +5,10 @@ target 'RunIt' do
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
-pod 'ISEmojiView'
+pod 'Firebase/Messaging'
+pod 'SDWebImage', '~>5.0'
 pod 'FBSDKCoreKit', '5.8.0'
 pod 'FBSDKLoginKit', '5.8.0'
-pod 'JGProgressHUD'
+
+pod 'GoogleSignIn'
 end

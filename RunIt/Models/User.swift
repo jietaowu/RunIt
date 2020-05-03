@@ -10,14 +10,42 @@ import Foundation
 
 struct User {
     
-    let uid:String
+    var uid: String
+    var username: String
+    var email:String
+    var profileImage:String
     
-    let email:String
     
-    init(uid:String,dictionary:[String:Any]) {
+    init(uid: String, dictionary:[String:Any]) {
+       
         self.uid = uid
+        self.username = dictionary["username"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
+        self.profileImage = dictionary["profileImage"] as? String ?? ""
+        
+        
     }
     
     
+    static func transformUser(dict: [String: Any]) -> User? {
+           guard let email = dict["email"] as? String,
+               let username = dict["username"] as? String,
+               let profileImageUrl = dict["profileImageUrl"] as? String,
+               let uid = dict["uid"] as? String else {
+                   return nil
+           }
+        
+        let values = ["email": email, "profileImage": profileImageUrl, "username": username]
+        
+           
+        let user = User(uid: uid, dictionary: values )
+        
+        
+        return user
+        
+         
+       }
+        
+    
 }
+

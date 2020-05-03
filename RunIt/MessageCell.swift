@@ -8,14 +8,40 @@
 
 import UIKit
 
-class MessageCell: CustomCell {
+class InboxCell: CustomCell {
+    
+   
     
     var user:User?{
         didSet{
+            guard let username = user?.username else {
+                return
+            }
+
             guard let email = user?.email else {
                 return
             }
 
+            guard let profile = user?.profileImage else {
+                return
+            }
+
+
+
+        }
+    }
+    
+    var inbox:Inbox?{
+        didSet{
+            guard let txt = inbox?.txt else{
+                return
+            }
+            
+            guard let date = inbox?.date else {
+                return
+            }
+            
+            
         }
     }
     
@@ -40,6 +66,7 @@ class MessageCell: CustomCell {
     
     let subtitleLabel:UILabel = {
         let subtitleLabel = UILabel()
+        subtitleLabel.backgroundColor = .red
         subtitleLabel.text = "[转帐]朋友已确认收钱"
         subtitleLabel.font = UIFont.systemFont(ofSize: 14)
         subtitleLabel.textColor = UIColor.getCustomColor(red: 199, green: 199, blue: 199)
@@ -48,7 +75,7 @@ class MessageCell: CustomCell {
         return subtitleLabel
     }()
     
-    private lazy var dateLabel:UILabel = {
+     lazy var dateLabel:UILabel = {
         //create another label
           let dateFontSize:CGFloat = 12
           let dateLabel = UILabel()

@@ -1,23 +1,49 @@
 //
-//  DiscoverController.swift
+//  SearchFriendsTableViewController.swift
 //  RunIt
 //
-//  Created by jwu on 2/16/20.
+//  Created by jwu on 4/9/20.
 //  Copyright © 2020 jwu. All rights reserved.
 //
 
 import UIKit
 
-class DiscoverController: UITableViewController {
+class SearchFriendsTableViewController: UITableViewController, UISearchResultsUpdating {
+    
+    var users:[User] = []
+    
+    var searchController:UISearchController = UISearchController(searchResultsController: nil)
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        return
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+       setupSearchBarController()
+        
+        
+        
+        
+    }
+    
+    
+    func setupSearchBarController() {
+        
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "search users"
+        searchController.searchBar.barTintColor = .white
+        searchController.obscuresBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        
+        
+        
     }
 
     // MARK: - Table view data source
